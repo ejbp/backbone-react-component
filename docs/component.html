@@ -37,8 +37,7 @@
               <pre><code>Backbone.React.Component v0<span class="hljs-number">.10</span><span class="hljs-number">.0</span>
 
 (c) <span class="hljs-number">2014</span>, <span class="hljs-number">2015</span> <span class="hljs-string">"Magalhas"</span> José Magalhães &lt;magalhas@gmail.com&gt;
-Backbone.React.Component can be freely distributed under the MIT license.
-</code></pre><p><code>Backbone.React.Component</code> is a mixin that glues <a href="http://backbonejs.org/">Backbone</a>
+Backbone.React.Component can be freely distributed under the MIT license.</code></pre><p><code>Backbone.React.Component</code> is a mixin that glues <a href="http://backbonejs.org/">Backbone</a>
 models and collections into <a href="http://facebook.github.io/react/">React</a> components.</p>
 <p>When the component is mounted, a wrapper starts listening to models and
 collections changes to automatically set your component state and achieve UI
@@ -51,8 +50,7 @@ binding through reactive updates.</p>
   }
 });
 <span class="hljs-keyword">var</span> model = <span class="hljs-keyword">new</span> Backbone.Model({<span class="hljs-attr">foo</span>: <span class="hljs-string">'bar'</span>});
-ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">MyComponent</span> <span class="hljs-attr">model</span>=<span class="hljs-string">{model}</span> /&gt;</span>, document.body);</span>
-</code></pre>
+ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">MyComponent</span> <span class="hljs-attr">model</span>=<span class="hljs-string">{model}</span> /&gt;</span>, document.body);</span></code></pre>
             </div>
             
             <div class="content"><div class='highlight'><pre>
@@ -72,13 +70,13 @@ ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-n
             </div>
             
             <div class="content"><div class='highlight'><pre>  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> define === <span class="hljs-string">'function'</span> &amp;&amp; define.amd) {
-    define([<span class="hljs-string">'react'</span>, <span class="hljs-string">'react-dom'</span>, <span class="hljs-string">'backbone'</span>, <span class="hljs-string">'underscore'</span>], factory);
+    define([<span class="hljs-string">'react'</span>, <span class="hljs-string">'react-dom'</span>, <span class="hljs-string">'backbone'</span>, <span class="hljs-string">'underscore'</span>, <span class="hljs-string">'prop-types'</span>], factory);
   } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">module</span> !== <span class="hljs-string">'undefined'</span> &amp;&amp; <span class="hljs-built_in">module</span>.exports) {
-    <span class="hljs-built_in">module</span>.exports = factory(<span class="hljs-built_in">require</span>(<span class="hljs-string">'react'</span>), <span class="hljs-built_in">require</span>(<span class="hljs-string">'react-dom'</span>), <span class="hljs-built_in">require</span>(<span class="hljs-string">'backbone'</span>), <span class="hljs-built_in">require</span>(<span class="hljs-string">'underscore'</span>));
+    <span class="hljs-built_in">module</span>.exports = factory(<span class="hljs-built_in">require</span>(<span class="hljs-string">'react'</span>), <span class="hljs-built_in">require</span>(<span class="hljs-string">'react-dom'</span>), <span class="hljs-built_in">require</span>(<span class="hljs-string">'backbone'</span>), <span class="hljs-built_in">require</span>(<span class="hljs-string">'underscore'</span>), <span class="hljs-built_in">require</span>(<span class="hljs-string">'prop-types'</span>));
   } <span class="hljs-keyword">else</span> {
-    factory(root.React, root.ReactDOM, root.Backbone, root._);
+    factory(root.React, root.ReactDOM, root.Backbone, root._, root.PropTypes);
   }
-}(<span class="hljs-keyword">this</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">React, ReactDOM, Backbone, _</span>) </span>{
+}(<span class="hljs-keyword">this</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">React, ReactDOM, Backbone, _, PropTypes</span>) </span>{
 <span class="hljs-meta">  'use strict'</span>;
   <span class="hljs-keyword">if</span> (!Backbone.React) {
     Backbone.React = {};
@@ -117,9 +115,9 @@ ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-n
             </div>
             
             <div class="content"><div class='highlight'><pre>    childContextTypes: {
-      <span class="hljs-attr">hasParentBackboneMixin</span>: React.PropTypes.bool.isRequired,
-      <span class="hljs-attr">parentModel</span>: React.PropTypes.any,
-      <span class="hljs-attr">parentCollection</span>: React.PropTypes.any
+      <span class="hljs-attr">hasParentBackboneMixin</span>: PropTypes.bool.isRequired,
+      <span class="hljs-attr">parentModel</span>: PropTypes.any,
+      <span class="hljs-attr">parentCollection</span>: PropTypes.any
     },</pre></div></div>
             
         </li>
@@ -137,9 +135,9 @@ optional.</p>
             </div>
             
             <div class="content"><div class='highlight'><pre>    contextTypes: {
-      <span class="hljs-attr">hasParentBackboneMixin</span>: React.PropTypes.bool,
-      <span class="hljs-attr">parentModel</span>: React.PropTypes.any,
-      <span class="hljs-attr">parentCollection</span>: React.PropTypes.any
+      <span class="hljs-attr">hasParentBackboneMixin</span>: PropTypes.bool,
+      <span class="hljs-attr">parentModel</span>: PropTypes.any,
+      <span class="hljs-attr">parentCollection</span>: PropTypes.any
     },</pre></div></div>
             
         </li>
